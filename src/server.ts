@@ -20,8 +20,8 @@ async function bootstrap(){
 		const count = await prisma.pool.count()
 		return { count }
 	})
-
-	await fastFy.listen({ port: 3333, host: '0.0.0.0' })
+	await fastFy.listen({ port: 3333 })
+	//  host: '0.0.0.0' 
 }
 
 bootstrap()
