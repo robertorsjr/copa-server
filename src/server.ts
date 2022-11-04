@@ -1,4 +1,5 @@
 import Fastify from  'fastify'
+import jwt from  '@fastify/jwt'
 import cors from '@fastify/cors'
 import {routes} from "./routes";
 
@@ -10,6 +11,11 @@ async function bootstrap(){
 
 	await fastify.register(cors, {
 		origin: true
+	})
+
+	//em produçao precisa estar em variavel
+	await fastify.register(jwt, {
+		secret: 'nlwcopa'
 	})
 
 	await routes(fastify)
